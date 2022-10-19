@@ -6,5 +6,6 @@ namespace UserManagementApplication.Contracts
 {
    public interface IUserService
     {
+
     }
 }
