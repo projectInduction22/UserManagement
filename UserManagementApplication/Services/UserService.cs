@@ -4,7 +4,7 @@ using System.Text;
 
 namespace UserManagementApplication.Services
 {
-    class UserService
+   public class UserService
     {
     }
 }
