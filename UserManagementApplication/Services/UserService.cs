@@ -57,7 +57,7 @@ namespace UserManagementApplication.Services
             };
         }
 
-        public bool Inser(UserData user)
+        public bool InsertUser(UserData user)
         {
             try
             {
