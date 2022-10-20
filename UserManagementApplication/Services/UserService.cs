@@ -39,5 +39,46 @@ namespace UserManagementApplication.Services
             }
             return userList;
         }
-   }
+
+        public UserData GetUserById(int id)
+        {
+            var userById = _userRepository.GetUserById(id);
+            return MapToUserDetails(userById);
+        }
+
+        private UserData MapToUserDetails(UserDetails userById)
+        {
+            return new UserData()
+            {
+                UserId = userById.UserId,
+                Name = userById.Name,
+                Email = userById.Email,
+                PhoneNumber = userById.PhoneNumber,
+                Address = userById.Address
+            };
+        }
+
+        public bool InsertUser(UserData user)
+        {
+            try
+            {
+                var userData = new UserDetails()
+                {
+                    Name = user.Name,
+                    Email = user.Email,
+                    Address = user.Address,
+                    PhoneNumber = user.PhoneNumber,
+                    UserName = user.UserName,
+                    Password = user.Password
+                };
+                _userRepository.InsertUser(userData);
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+    }
 }
