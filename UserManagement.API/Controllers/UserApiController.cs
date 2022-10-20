@@ -78,7 +78,36 @@ namespace UserManagement.API.Controllers
             };
             return userDetails;
         }
-         
+
+        [HttpPost]
+        [Route("insertUser")]
+        public IActionResult InsertUser([FromBody] UserDetailedViewModel insertUser)
+        {
+            try
+            {
+                var insertion = _userService.InsertUser(MaptoInsertUser(insertUser));
+                return Ok(insertion);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+        private UserData MaptoInsertUser(UserDetailedViewModel insertUser)
+        {
+            var userInsertion = new UserData()
+            {
+                Name = insertUser.Name,
+                Email = insertUser.Email,
+                PhoneNumber = insertUser.PhoneNumber,
+                Address = insertUser.Address,
+                UserName = insertUser.UserName,
+                Password = insertUser.Password
+            };
+            return userInsertion;
+        }
+
         [HttpDelete]
         [Route("deleteUser/{id}")]
         public IActionResult DeleteUser([FromRoute] int id)
