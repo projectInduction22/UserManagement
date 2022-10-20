@@ -105,5 +105,26 @@ namespace UserManagementApplication.Services
             return true;
         }
 
+        public bool updated(UserData user)
+        {
+            try
+            {
+                var userData = new UserDetails()
+                {
+                    UserId = user.UserId,
+                    Name = user.Name,
+                    Email = user.Email,
+                    Address = user.Address,
+                    PhoneNumber = user.PhoneNumber
+                };
+                _userRepository.UpdateUser(userData);
+                return true;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }
