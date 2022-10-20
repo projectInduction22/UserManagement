@@ -78,6 +78,11 @@ namespace UserManagementApplication.Services
                 throw;
             }
         }
+        public bool DeleteUser(int ID)
+        {
+            _userRepository.DeleteUser(ID);
+            return true;
+        }
 
     }
 }
