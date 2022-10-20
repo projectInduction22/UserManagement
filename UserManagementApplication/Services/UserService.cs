@@ -126,5 +126,25 @@ namespace UserManagementApplication.Services
             }
         }
 
+        public UserData UserDetailsOnLoginBtnClick(string userName, int password)
+        {
+            var userDetailsOnLoginBtnClick = _userRepository.UserDetailsOnLoginBtnClick(userName, password);
+            var userLogin = MapToUserData(userDetailsOnLoginBtnClick);
+            return userLogin;
+
+        }
+        private UserData MapToUserData(UserDetails userLogin)
+        {
+            var userData = new UserData
+            {
+                UserId = userLogin.UserId,
+                Name = userLogin.Name,
+                Email = userLogin.Email,
+                PhoneNumber = userLogin.PhoneNumber,
+                Address = userLogin.Address
+            };
+
+            return userData;
+        }
     }
 }
