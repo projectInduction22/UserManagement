@@ -56,7 +56,6 @@ namespace UserManagementApplication.Services
                 Address = userById.Address
             };
         }
-
         public bool InsertUser(UserData user)
         {
             try
@@ -77,55 +76,12 @@ namespace UserManagementApplication.Services
             {
                 throw;
             }
-        }
-
-        public bool UpdateUser(UserData user)
-        {
-            try
-            {
-                var userData = new UserDetails()
-                {
-                    UserId = user.UserId,
-                    Name = user.Name,
-                    Email = user.Email,
-                    Address = user.Address,
-                    PhoneNumber = user.PhoneNumber
-                };
-                _userRepository.UpdateUser(userData);
-                return true;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
+        }      
         public bool DeleteUser(int ID)
         {
             _userRepository.DeleteUser(ID);
             return true;
-        }
-
-        public bool updated(UserData user)
-        {
-            try
-            {
-                var userData = new UserDetails()
-                {
-                    UserId = user.UserId,
-                    Name = user.Name,
-                    Email = user.Email,
-                    Address = user.Address,
-                    PhoneNumber = user.PhoneNumber
-                };
-                _userRepository.UpdateUser(userData);
-                return true;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
+        }  
         public UserData UserDetailsOnLoginBtnClick(string userName, int password)
         {
             var userDetailsOnLoginBtnClick = _userRepository.UserDetailsOnLoginBtnClick(userName, password);
