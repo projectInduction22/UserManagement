@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using UserManagementApplication.Contracts;
 using UserManagementApplication.Models;
 using UserManagementDataAccess.Contracts;
 using UserManagementDataAccess.Models;
 
 namespace UserManagementApplication.Services
 {
-   public class UserService
-   {
+   public class UserService: IUserService
+    {
         private readonly IUserRepository _userRepository;
 
         public UserService(IUserRepository userRepository)
@@ -98,9 +99,9 @@ namespace UserManagementApplication.Services
                 throw;
             }
         }
-        public bool DeleteUser(int ID)
+        public bool DeleteUser(int id)
         {
-            _userRepository.DeleteUser(ID);
+            _userRepository.DeleteUser(id);
             return true;
         }  
         public UserData UserDetailsOnLoginBtnClick(string userName, int password)
