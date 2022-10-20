@@ -78,7 +78,7 @@ namespace UserManagement.API.Controllers
             };
             return userDetails;
         }
-
+         
         [HttpDelete]
         [Route("deleteUser/{id}")]
         public IActionResult DeleteUser([FromRoute] int id)
@@ -92,7 +92,33 @@ namespace UserManagement.API.Controllers
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
+        }
 
+        [HttpGet]
+        [Route("{userName}/{password}")]
+        public IActionResult UserDetailsOnLoginBtnClick([FromRoute] string userName, int password)
+        {
+            try
+            {
+                var user = _userService.UserDetailsOnLoginBtnClick(userName, password);
+                return Ok(MapUserByLogin(user));
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, exception.Message);
+            }
+        }
+        private UserDetailedViewModel MapUserByLogin(UserData user)
+        {
+            var userDetails = new UserDetailedViewModel()
+            {
+                UserId = user.UserId,
+                Name = user.Name,
+                Email = user.Email,
+                PhoneNumber = user.PhoneNumber,
+                Address = user.Address
+            };
+            return userDetails;
         }
 
     }
