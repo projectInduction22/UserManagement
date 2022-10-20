@@ -7,7 +7,7 @@ namespace UserManagementApplication.Contracts
 {
    public interface IUserService
     {
-        IEnumerable<UserData> GetAllUser();
+        IEnumerable<UserData> GetAllUsers();
         UserData GetUserById(int id);
         bool InsertUser(UserData user);
         bool UpdateUser(UserData user);

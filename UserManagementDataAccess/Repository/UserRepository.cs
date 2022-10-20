@@ -12,7 +12,7 @@ namespace UserManagementDataAccess.Repository
         private SqlConnection _sqlConnection;
         public UserRepository()
         {
-            _sqlConnection = new SqlConnection("data source= 10.10.100.68\\SQL2016; database= Dotnet_Core_Training;");
+            _sqlConnection = new SqlConnection("data source= 10.10.100.68\\SQL2016; database= Dotnet_Core_Training;user id=spsauser;password=$P$@789#;TrustServerCertificate=True");
         }
         public IEnumerable<UserDetails> GetAllUsers()
         {
@@ -30,7 +30,7 @@ namespace UserManagementDataAccess.Repository
                         Name = (string)sqlDataReader["NAME"],
                         Address = (string)sqlDataReader["ADDRESS"],
                         Email = (string)sqlDataReader["EMAIL"],
-                        PhoneNumber = (int)sqlDataReader["PHONE_NUMBER"]
+                        PhoneNumber = (string)sqlDataReader["PHONE_NUMBER"]
                     });
 
                 }
@@ -64,7 +64,7 @@ namespace UserManagementDataAccess.Repository
                     user.Name = (string)sqlDataReader["NAME"];
                     user.Address = (string)sqlDataReader["ADDRESS"];
                     user.Email = (string)sqlDataReader["EMAIL"];
-                    user.PhoneNumber = (int)sqlDataReader["PHONE_NUMBER"];
+                    user.PhoneNumber = (string)sqlDataReader["PHONE_NUMBER"];
                 }
                 return user;
 
@@ -171,7 +171,7 @@ namespace UserManagementDataAccess.Repository
                     user.Name = (string)sqlDataReader["NAME"];
                     user.Address = (string)sqlDataReader["ADDRESS"];
                     user.Email = (string)sqlDataReader["EMAIL"];
-                    user.PhoneNumber = (int)sqlDataReader["PHONE_NUMBER"];
+                    user.PhoneNumber = (string)sqlDataReader["PHONE_NUMBER"];
                 }
                 return user;
 

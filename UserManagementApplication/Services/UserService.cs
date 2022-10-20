@@ -17,7 +17,7 @@ namespace UserManagementApplication.Services
             _userRepository = userRepository;
         }
 
-        public IEnumerable<UserData> GetAllUser()
+        public IEnumerable<UserData> GetAllUsers()
         {
             var users = _userRepository.GetAllUsers();
             return MapToUserData(users);
