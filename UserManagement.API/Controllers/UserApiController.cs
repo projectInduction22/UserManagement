@@ -10,14 +10,13 @@ using UserManagementApplication.Models;
 
 namespace UserManagement.API.Controllers
 {
-    [Route("api/loginPage")]
+    [Route("api/users")]
     [ApiController]
     public class UserApiController : ControllerBase
     {
         private readonly IUserService _userService;
         public UserApiController(IUserService userService)
-        {
-            //_userService = userService;
+        {          
             this._userService = userService;
         }
         [HttpGet]
