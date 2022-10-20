@@ -26,7 +26,7 @@ namespace UserManagement.API.Controllers
             try
             {
                 var listOfUsers = _userService.GetAllUsers();
-                return Ok(MapToEmployee(listOfUsers));
+                return Ok(MapToUser(listOfUsers));
             }
             catch (Exception exception)
             {
@@ -34,7 +34,7 @@ namespace UserManagement.API.Controllers
 
             }
         }
-        private IEnumerable<UserDetailedViewModel> MapToEmployee(IEnumerable<UserData> listOfUsers)
+        private IEnumerable<UserDetailedViewModel> MapToUser(IEnumerable<UserData> listOfUsers)
         {
             var userList = new List<UserDetailedViewModel>();
             foreach (var item in listOfUsers)
@@ -106,6 +106,34 @@ namespace UserManagement.API.Controllers
                 Password = insertUser.Password
             };
             return userInsertion;
+        }
+
+        [HttpPut]
+        [Route("updateUser")]
+        public IActionResult UpdateEmployee([FromBody] UserDetailedViewModel updateUser)
+        {
+            try
+            {
+                var updation = _userService.UpdateUser(MapToUpdateUser(updateUser));
+                return Ok(updation);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+        private UserData MapToUpdateUser(UserDetailedViewModel updateUser)
+        {
+            var userUpdation = new UserData()
+            {
+                UserId = updateUser.UserId,
+                Name = updateUser.Name,
+                Email = updateUser.Email,
+                PhoneNumber = updateUser.PhoneNumber,
+                Address = updateUser.Address
+            };
+            return userUpdation;
         }
 
         [HttpDelete]
