@@ -79,6 +79,21 @@ namespace UserManagement.API.Controllers
             return userDetails;
         }
 
-        
+        [HttpDelete]
+        [Route("deleteUser/{id}")]
+        public IActionResult DeleteUser([FromRoute] int id)
+        {
+            try
+            {
+                var user = _userService.DeleteUser(id);
+                return Ok(user);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+
+        }
+
     }
 }
