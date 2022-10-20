@@ -52,5 +52,33 @@ namespace UserManagement.API.Controllers
             return userList;
         }
 
+        [HttpGet]
+        [Route("{userId}")]
+        public IActionResult GetUserById([FromRoute] int userId)
+        {
+            try
+            {              
+                var user = _userService.GetUserById(userId);
+                return Ok(MapUserById(user));
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, exception.Message);
+            }
+        }
+        private UserDetailedViewModel MapUserById(UserData user)
+        {
+            var userDetails = new UserDetailedViewModel()
+            {
+                UserId = user.UserId,
+                Name = user.Name,
+                Email = user.Email,
+                PhoneNumber = user.PhoneNumber,
+                Address = user.Address
+            };
+            return userDetails;
+        }
+
+        
     }
 }
