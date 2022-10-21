@@ -15,8 +15,7 @@ namespace UserManagement.UI.Controllers
         public UserController(IUserApiClient userApiClient)
         {
             this._userApiClient = userApiClient;
-        }
-        
+        }        
        
         public IActionResult GetAllUser()
         {
