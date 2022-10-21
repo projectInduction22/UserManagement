@@ -8,6 +8,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UserManagement.UI.Configuration;
+using UserManagement.UI.Providers.ApiClients;
+using UserManagement.UI.Providers.Contracts;
+using UserManagementApplication.Contracts;
+using UserManagementApplication.Services;
+using UserManagementDataAccess.Contracts;
+using UserManagementDataAccess.Repository;
+
 
 namespace UserManagement.UI
 {
@@ -23,6 +31,7 @@ namespace UserManagement.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.RegisterDependencies();
             services.AddControllersWithViews();
         }
 
