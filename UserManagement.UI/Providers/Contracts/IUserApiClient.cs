@@ -9,5 +9,6 @@ namespace UserManagement.UI.Providers.Contracts
    public interface IUserApiClient
     {
         IEnumerable<UserDetailedViewModel> GetAllUsers();
+        UserDetailedViewModel UserDetailsOnLoginBtnClick(string userName, int password);
     }
 }

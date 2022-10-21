@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<UserManagement.UI.Models.LoginCredentials>
+
+<div>
+    <center> <h1> Login  </h1> </center>
+    <form>
+        <div class="container">
+            <label>Username : </label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+            <label>Password : </label>
+            <input type="password" placeholder="Enter Password" name="password" required>
+            <button id="loginbtn"type="submit">Login</button>
+            <button id="signupBtn"type="submit" class="cancelbtn"> SignUp</button>
+
+        </div>
+    </form>
+</div>
+
+
+
+

@@ -20,6 +20,7 @@ namespace UserManagement.UI.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
 
