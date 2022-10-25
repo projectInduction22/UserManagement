@@ -7,20 +7,24 @@
 @model IEnumerable<UserManagement.UI.Models.LoginCredentials>
 
 <div>
-    <center> <h1> Login  </h1> </center>
-    <form>
+    <center> <h1> Login Page </h1> </center>
+    <form id="login-page"action="login" method="post">
         <div class="container">
             <label>Username : </label>
-            <input type="text" placeholder="Enter Username" name="username" required><br />
+            <input type="text" placeholder="Enter Username" name="username" id="userName" required><br />
             <label>Password : </label>
-            <input type="password" placeholder="Enter Password" name="password" required><br />
-            <button id="loginbtn"type="submit">Login</button>
-            <button id="signupBtn"type="submit" class="cancelbtn"> SignUp</button>
+            <input type="password" placeholder="Enter Password" name="password" id="password" required><br />
+            <button id="loginbtn" type="submit">Login</button>
+            <button id="signupBtn" type="submit" class="cancelbtn"> SignUp</button>
 
         </div>
+       
     </form>
 </div>
 
+@*@section Scripts{
 
-
+    <script src="~/js/user.js"></script>
+}
+*@
 
