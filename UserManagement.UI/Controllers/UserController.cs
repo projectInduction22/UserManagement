@@ -45,6 +45,35 @@ namespace UserManagement.UI.Controllers
             }
         }
 
+        /*[Route("login-page")]*/
+        public IActionResult LoginPage()
+        {
+            return View();
+        }
+
+
+        /* [Route("user-page/{userName}/{password}")]*/
+        public IActionResult UserDetailsOnLoginBtnClick(string userName, int password)
+        {
+            try
+            {
+                var details = _userApiClient.UserDetailsOnLoginBtnClick(userName, password);
+                if (userName == "Admin" && password == 12345)
+                {
+                    return RedirectToAction("GetAllUser", "User");
+                }
+                else
+                {
+                    return View(details);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         public IActionResult UpdateUser(int userId)
         {
             var user = _userApiClient.GetUserById(userId);
