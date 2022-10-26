@@ -68,5 +68,14 @@ namespace UserManagement.UI.Providers.ApiClients
             }
         }
 
+        public bool DeleteUser(int userId)
+        {
+
+            var stringContent = new StringContent(JsonConvert.SerializeObject(userId));
+            using (var response = _httpClient.DeleteAsync("https://localhost:44334/api/users/deleteUser" + userId).Result)
+            {
+                return true;
+            }
+        }
     }
 }

@@ -52,7 +52,7 @@
                 <td>
                     @Html.ActionLink("Edit", "UpdateUser", new { userId = item.UserId}) |
                     @Html.ActionLink("Details", "GetUserById", new { userId = item.UserId  }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Delete", "DeleteUser", new { userId = item.UserId  })
                 </td>
             </tr>
         }
