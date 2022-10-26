@@ -12,5 +12,6 @@ namespace UserManagement.UI.Providers.Contracts
         UserDetailedViewModel GetUserById(int userId);
         UserDetailedViewModel UserDetailsOnLoginBtnClick(string userName, int password);
         bool InsertUser(UserViewModel insertUser);
+        bool UpdateUser(UserDetailedViewModel updateUser);
     }
 }

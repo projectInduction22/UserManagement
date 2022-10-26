@@ -44,61 +44,7 @@ namespace UserManagement.UI.Controllers
                 throw;
             }
         }
-      /*  [Route("login-page")]*/
-        public IActionResult LoginPage()
-        {
-            return View();
-        }
         
-        /*[HttpGet]
-        public IActionResult LoginPage(string userName, int password)
-        {
-            if (userName == "Admin" && password == 12345)
-            {
-                return RedirectToAction("GetAllUser", "admin-page");
-            }
-            else
-            {
-                return RedirectToAction("UserDetailsOnLoginBtnClick", "user-page/{userName}/{password}");
-            }
-        }*/
-        /*[Route("user-page/{userName}/{password}")]*/
-        public IActionResult UserDetailsOnLoginBtnClick(string userName, int password)
-        {
-            try
-            {
-                var details = _userApiClient.UserDetailsOnLoginBtnClick(userName,password);
-                if (userName == "Admin" && password == 12345)
-                {
-                    return RedirectToAction("GetAllUser", "User");
-                }
-                else
-                {
-                    return View(details);
-                }              
-                               
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
-     /*   [Route("signup-page")]*/
-        public IActionResult InsertUser()
-        {
-                return View();                     
-        }
-       
-        [HttpPost]
-        public IActionResult InsertUser(UserViewModel user)
-        {
-            var insertUser = _userApiClient.InsertUser(user);
-            return RedirectToAction("LoginPage", "User");
-        }
-
-      
-
 
     }
 }

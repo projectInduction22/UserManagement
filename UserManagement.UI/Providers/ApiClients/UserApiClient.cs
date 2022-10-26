@@ -58,6 +58,15 @@ namespace UserManagement.UI.Providers.ApiClients
                 return true;
             }
         }
+        public bool UpdateUser(UserDetailedViewModel updateUser)
+        {
+            var stringContent = new StringContent(JsonConvert.SerializeObject(updateUser), Encoding.UTF8, "application/json");
+            using (var response = _httpClient.PutAsync("https://localhost:44334/api/users/updateUser", stringContent).Result)
+            {
+                response.Content.ReadAsStringAsync();
+                return true;
+            }
+        }
 
     }
 }
