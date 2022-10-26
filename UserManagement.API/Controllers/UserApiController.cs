@@ -137,12 +137,12 @@ namespace UserManagement.API.Controllers
         }
 
         [HttpDelete]
-        [Route("deleteUser/{id}")]
-        public IActionResult DeleteUser([FromRoute] int id)
+        [Route("deleteUser/{userId}")]
+        public IActionResult DeleteUser([FromRoute] int userId)
         {
             try
             {
-                var user = _userService.DeleteUser(id);
+                var user = _userService.DeleteUser(userId);
                 return Ok(user);
             }
             catch (Exception ex)

@@ -11,7 +11,7 @@ namespace UserManagementApplication.Contracts
         UserData GetUserById(int id);
         bool InsertUser(UserData user);
         bool UpdateUser(UserData user);
-        bool DeleteUser(int id);
+        bool DeleteUser(int userId);
         UserData UserDetailsOnLoginBtnClick(string userName, int password);
     }
 }

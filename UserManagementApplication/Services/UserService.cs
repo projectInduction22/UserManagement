@@ -99,9 +99,9 @@ namespace UserManagementApplication.Services
                 throw;
             }
         }
-        public bool DeleteUser(int id)
+        public bool DeleteUser(int userId)
         {
-            _userRepository.DeleteUser(id);
+            _userRepository.DeleteUser(userId);
             return true;
         }  
         public UserData UserDetailsOnLoginBtnClick(string userName, int password)

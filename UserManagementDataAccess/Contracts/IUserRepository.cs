@@ -9,7 +9,7 @@ namespace UserManagementDataAccess.Contracts
     {
         IEnumerable<UserDetails> GetAllUsers();
         UserDetails GetUserById(int id);
-        bool DeleteUser(int id);
+        bool DeleteUser(int userId);
         bool InsertUser(UserDetails user);
         bool UpdateUser(UserDetails user);
         UserDetails UserDetailsOnLoginBtnClick(string userName, int password);

@@ -8,24 +8,30 @@
 
 <div>
     <center> <h1> Login Page </h1> </center>
-    <form id="login-page"action="login" method="post">
+    <form id="login-page" action="@Url.Action("UserDetailsOnLoginBtnClick", "User")" method="post">
         <div class="container">
             <label>Username : </label>
             <input type="text" placeholder="Enter Username" name="username" id="userName" required><br />
             <label>Password : </label>
             <input type="password" placeholder="Enter Password" name="password" id="password" required><br />
-             <button id="loginbtn" type="submit">Login</button>
-            
-            <button id="signupBtn" type="submit" class="cancelbtn"> SignUp</button>
-
+            <button id="loginbtn" type="submit">Login</button>
+            @*<button id="signupBtn" type="submit" class="cancelbtn"> SignUp</button>*@
         </div>
-       
     </form>
 </div>
 
-@*@section Scripts{
+    <div>        
+        <a asp-action="InsertUser">SignUp</a>
+    </div>
 
-    <script src="~/js/user.js"></script>
-}
-*@
+@*<script >
+        $(document).ready(function () {
+
+            $('#loginbtn').click(function (e)
+          {
+              location.href = '@Url.Content("~/User/UserDetailsOnLoginBtnClick/")';
+          });
+
+        });
+    </script>*@
 

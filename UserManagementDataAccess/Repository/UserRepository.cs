@@ -80,13 +80,13 @@ namespace UserManagementDataAccess.Repository
                 _sqlConnection.Close();
             }
         }
-        public bool DeleteUser(int id)
+        public bool DeleteUser(int userId)
         {
             try
             {
                 _sqlConnection.Open();
                 var sqlCommand = new SqlCommand(cmdText: "EXEC SP_DELETE_USER @ID", _sqlConnection);
-                sqlCommand.Parameters.AddWithValue("ID", id);
+                sqlCommand.Parameters.AddWithValue("ID", userId);
                 sqlCommand.ExecuteNonQuery();
                 return true;
             }

@@ -62,7 +62,7 @@ namespace UserManagement.UI.Controllers
                 {
                     return RedirectToAction("GetAllUser", "User");
                 }
-                else
+                else 
                 {
                     return View(details);
                 }
@@ -83,7 +83,7 @@ namespace UserManagement.UI.Controllers
         public IActionResult UpdateUser(UserDetailedViewModel updation)
         {
             var updateUser = _userApiClient.UpdateUser(updation);
-            return View();
+            return RedirectToAction("GetAllUser", "User");
         }
 
         /*   [Route("signup-page")]*/
