@@ -99,9 +99,9 @@ namespace UserManagement.UI.Controllers
             return RedirectToAction("LoginPage", "User");
         }
 
-        public IActionResult DeleteUser(int userId)
+        public IActionResult DeleteUser(int Id)
         {           
-            _userApiClient.DeleteUser(userId);
+            _userApiClient.DeleteUser(Id);
             return RedirectToAction("GetAllUser", "User");
         }
 
