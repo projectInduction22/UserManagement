@@ -51,7 +51,7 @@ namespace UserManagement.UI.Providers.ApiClients
 
         public bool InsertUser(UserViewModel insertUser)
         {
-            var stringContent = new StringContent(JsonConvert.SerializeObject(insertUser), Encoding.UTF8, "application/json");
+            var stringContent = new StringContent ( JsonConvert.SerializeObject(insertUser), Encoding.UTF8, "application/json" );
             using (var response = _httpClient.PostAsync("https://localhost:44334/api/users/insertUser", stringContent).Result)
             {
                 response.Content.ReadAsStringAsync();

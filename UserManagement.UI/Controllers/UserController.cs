@@ -57,6 +57,19 @@ namespace UserManagement.UI.Controllers
             return View();
         }
 
+        /*   [Route("signup-page")]*/
+        public IActionResult InsertUser()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult InsertUser(UserViewModel user)
+        {
+            var insertUser = _userApiClient.InsertUser(user);
+            return RedirectToAction("LoginPage", "User");
+        }
+
 
 
 
