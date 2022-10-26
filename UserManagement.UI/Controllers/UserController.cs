@@ -99,17 +99,12 @@ namespace UserManagement.UI.Controllers
             return RedirectToAction("LoginPage", "User");
         }
 
-        public IActionResult DeleteUser(int? userId)
+        public IActionResult DeleteUser(int userId)
         {           
-            var user = _userApiClient.GetUserById(userId.Value);
-            return View(user);
+            _userApiClient.DeleteUser(userId);
+            return RedirectToAction("GetAllUser", "User");
         }
 
-        [HttpPost]
-        public IActionResult DeleteUser(int userId)
-        {   
-            var deleteUser = _userApiClient.DeleteUser(userId);
-           return View(deleteUser);
-        }
+       
     }
 }

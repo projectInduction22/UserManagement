@@ -49,13 +49,13 @@ namespace UserManagementDataAccess.Repository
 
 
         }
-        public UserDetails GetUserById(int id)
+        public UserDetails GetUserById(int userId)
         {
             try
             {
                 _sqlConnection.Open();
                 var sqlCommand = new SqlCommand(cmdText: "EXEC SP_GET_USER_DETAILS @ID", _sqlConnection);
-                sqlCommand.Parameters.AddWithValue("ID", id);
+                sqlCommand.Parameters.AddWithValue("ID", userId);
                 var sqlDataReader = sqlCommand.ExecuteReader();
                 var user = new UserDetails();
                 while (sqlDataReader.Read())

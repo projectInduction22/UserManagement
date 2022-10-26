@@ -8,7 +8,7 @@ namespace UserManagementDataAccess.Contracts
    public interface IUserRepository
     {
         IEnumerable<UserDetails> GetAllUsers();
-        UserDetails GetUserById(int id);
+        UserDetails GetUserById(int userId);
         bool DeleteUser(int userId);
         bool InsertUser(UserDetails user);
         bool UpdateUser(UserDetails user);

@@ -40,9 +40,9 @@ namespace UserManagementApplication.Services
             return userList;
         }
 
-        public UserData GetUserById(int id)
+        public UserData GetUserById(int userId)
         {
-            var userById = _userRepository.GetUserById(id);
+            var userById = _userRepository.GetUserById(userId);
             return MapToUserDetails(userById);
         }
 
