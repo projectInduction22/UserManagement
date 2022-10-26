@@ -45,7 +45,19 @@ namespace UserManagement.UI.Controllers
             }
         }
 
-        
+        public IActionResult UpdateUser(int userId)
+        {
+            var user = _userApiClient.GetUserById(userId);
+            return View(user);
+        }
+        [HttpPost]
+        public IActionResult UpdateUser(UserDetailedViewModel updation)
+        {
+            var updateUser = _userApiClient.UpdateUser(updation);
+            return View();
+        }
+
+
 
 
     }
