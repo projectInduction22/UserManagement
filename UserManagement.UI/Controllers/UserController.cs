@@ -40,7 +40,6 @@ namespace UserManagement.UI.Controllers
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -51,7 +50,6 @@ namespace UserManagement.UI.Controllers
             return View();
         }
 
-
         /* [Route("user-page/{userName}/{password}")]*/
         public IActionResult UserDetailsOnLoginBtnClick(string userName, int password)
         {
@@ -60,6 +58,7 @@ namespace UserManagement.UI.Controllers
                 var details = _userApiClient.UserDetailsOnLoginBtnClick(userName, password);
                 if (userName == "Admin" && password == 12345)
                 {
+                    
                     return RedirectToAction("GetAllUser", "User");
                 }
                 else 
@@ -69,7 +68,6 @@ namespace UserManagement.UI.Controllers
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
