@@ -7,9 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagementDataAccess", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagementApplication", "UserManagementApplication\UserManagementApplication.csproj", "{54C42B7D-7B2B-41EB-B406-1342FA8D53B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.API", "UserManagement.API\UserManagement.API.csproj", "{480381EB-DBDF-4108-BFEF-1B1EE7C72939}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.API", "UserManagement.API\UserManagement.API.csproj", "{480381EB-DBDF-4108-BFEF-1B1EE7C72939}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.UI", "UserManagement.UI\UserManagement.UI.csproj", "{4ACA6958-6EB0-4997-AD21-EFEB2A5B5254}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManagement.UI", "UserManagement.UI\UserManagement.UI.csproj", "{4ACA6958-6EB0-4997-AD21-EFEB2A5B5254}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-Presentation", "01-Presentation", "{5369369A-E04B-40BC-9563-9509AFCB433B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Application", "02-Application", "{9BE5DAE0-272F-421F-9EE4-1DB099E548A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03-DataAccess", "03-DataAccess", "{08380B29-14BD-4DB0-BCAF-2559E068A1A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +42,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E0CFFCA8-39CE-405E-81AB-3E9B0EFA351B} = {08380B29-14BD-4DB0-BCAF-2559E068A1A4}
+		{54C42B7D-7B2B-41EB-B406-1342FA8D53B1} = {9BE5DAE0-272F-421F-9EE4-1DB099E548A0}
+		{480381EB-DBDF-4108-BFEF-1B1EE7C72939} = {5369369A-E04B-40BC-9563-9509AFCB433B}
+		{4ACA6958-6EB0-4997-AD21-EFEB2A5B5254} = {5369369A-E04B-40BC-9563-9509AFCB433B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {532A7D75-8F42-4DEF-951A-95C45F8524B7}
