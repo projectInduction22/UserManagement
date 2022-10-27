@@ -110,7 +110,7 @@ namespace UserManagement.API.Controllers
 
         [HttpPut]
         [Route("updateUser")]
-        public IActionResult UpdateEmployee([FromBody] UserDetailedViewModel updateUser)
+        public IActionResult UpdateUser([FromBody] UserDetailedViewModel updateUser)
         {
             try
             {
