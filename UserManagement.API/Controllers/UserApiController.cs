@@ -173,7 +173,9 @@ namespace UserManagement.API.Controllers
                 Name = user.Name,
                 Email = user.Email,
                 PhoneNumber = user.PhoneNumber,
-                Address = user.Address
+                Address = user.Address,
+                UserName=user.UserName,
+                Password=user.Password
             };
             return userDetails;
         }

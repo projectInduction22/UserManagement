@@ -112,9 +112,6 @@ namespace UserManagementDataAccess.Repository
                 sqlCommand.Parameters.AddWithValue("PHONE_NUMBER", user.PhoneNumber);
                 sqlCommand.Parameters.AddWithValue("USER_NAME", user.UserName);
                 sqlCommand.Parameters.AddWithValue("PASSWORD", user.Password);
-
-
-
                 sqlCommand.ExecuteNonQuery();
                 return true;
 
@@ -160,7 +157,7 @@ namespace UserManagementDataAccess.Repository
             try
             {
                 _sqlConnection.Open();
-                var sqlCommand = new SqlCommand(cmdText: "EXEC SP_GET_USER_LOGIN @USER_NAME,@PASSWORD", _sqlConnection);
+                var sqlCommand = new SqlCommand(cmdText: "EXEC SP_CHECK_USER_LOGIN @USER_NAME,@PASSWORD", _sqlConnection);
                 sqlCommand.Parameters.AddWithValue("USER_NAME", userName);
                 sqlCommand.Parameters.AddWithValue("PASSWORD", password);
                 var sqlDataReader = sqlCommand.ExecuteReader();
@@ -172,6 +169,8 @@ namespace UserManagementDataAccess.Repository
                     user.Address = (string)sqlDataReader["ADDRESS"];
                     user.Email = (string)sqlDataReader["EMAIL"];
                     user.PhoneNumber = (string)sqlDataReader["PHONE_NUMBER"];
+                    user.Password = (int)sqlDataReader["PASSWORD"];
+                    user.UserName = (string)sqlDataReader["USERNAME"];
                 }
                 return user;
 

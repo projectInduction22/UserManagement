@@ -119,7 +119,10 @@ namespace UserManagementApplication.Services
                 Name = userLogin.Name,
                 Email = userLogin.Email,
                 PhoneNumber = userLogin.PhoneNumber,
-                Address = userLogin.Address
+                Address = userLogin.Address,
+                UserName=userLogin.UserName,
+                Password=userLogin.Password
+                
             };
 
             return userData;

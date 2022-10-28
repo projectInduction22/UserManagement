@@ -51,20 +51,30 @@ namespace UserManagement.UI.Controllers
         }
 
         /* [Route("user-page/{userName}/{password}")]*/
-        public IActionResult UserDetailsOnLoginBtnClick(string userName, int password)
+        public IActionResult UserDetailsOnLoginBtnClick( string userName, int password)
         {
             try
             {
                 var details = _userApiClient.UserDetailsOnLoginBtnClick(userName, password);
                 if (userName == "Admin" && password == 12345)
                 {
-                    
+
                     return RedirectToAction("GetAllUser", "User");
+                    
                 }
-                else 
+                else if (userName == details.UserName && password == details.Password)
                 {
+
                     return View(details);
+
                 }
+                else
+                {
+                    /*TempData["Message"] = "User not found! You need to sign up before login.....";*/
+                    return Content("User not found! You need to sign up before login.....");
+                   // return RedirectToAction("InsertUser", "User");
+                }
+                
             }
             catch (Exception)
             {
@@ -94,6 +104,7 @@ namespace UserManagement.UI.Controllers
         public IActionResult InsertUser(UserViewModel user)
         {
             var insertUser = _userApiClient.InsertUser(user);
+            
             return RedirectToAction("LoginPage", "User");
         }
 
