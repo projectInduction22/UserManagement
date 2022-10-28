@@ -70,7 +70,7 @@ namespace UserManagement.UI.Controllers
                 }
                 else
                 {
-                    /*TempData["Message"] = "User not found! You need to sign up before login.....";*/
+                    
                     return Content("User not found! You need to sign up before login.....");
                    // return RedirectToAction("InsertUser", "User");
                 }
